@@ -1,0 +1,12 @@
+# cat /etc/yum.repos.d/my.repo 
+[dvd-BaseOS]
+name=DVD for RHEL - BaseOS
+baseurl=http://dnfrepo.db2.svc.closter.local
+enabled=1
+gpgcheck=0
+
+[dvd-AppStream]
+name=DVD for RHEL - AppStream
+baseurl=http://dnfrepo.db2.svc.closter.local
+enabled=1
+gpgcheck=0

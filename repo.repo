@@ -1,4 +1,3 @@
-# cat /etc/yum.repos.d/my.repo 
 [dvd-BaseOS]
 name=DVD for RHEL - BaseOS
 baseurl=http://dnfrepo.db2.svc.cluster.local/repo/BaseOS

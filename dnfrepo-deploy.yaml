@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dnfrepo
+  name: dnfrepo
+spec:
+  selector:
+    matchLabels:
+      app: dnfrepo
+  template:
+    metadata:
+      labels:
+        app: dnfrepo
+    spec:
+      containers:
+      - image: docker.io/httpd:latest
+        imagePullPolicy: IfNotPresent
+        name: dnfrepo
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /mnt/media
+          name: media
+        - mountPath: /usr/local/apache2/conf/httpd.conf
+          name: httpdconf
+          subPath: httpd.conf
+      serviceAccount: root-sa
+      serviceAccountName: root-sa
+      volumes:
+      - name: media
+        persistentVolumeClaim:
+          claimName: media
+      - name: httpdconf
+        configMap:
+           name: httpdconf
+ 
